@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width">
+	  <title>Colors</title>
+	  <style>
+		.layout {
+		  width: 200px;
+		  height: 200px;
+		}
+		#rectangleWrapper {
+		  padding: 50px 50px 0 50px;
+		}
+	  </style>
+	</head>
+	<body onload="output()">
+	    <div id = "colors"></div>
+	    <script>
+			// List of all colors
+			var colors = ['#C0392B', '#9B59B6', '#2980B9',
+						 '#1ABC9C', '#27AE60', '#F1C40F', 
+						 '#E67E22', '#BDC3C7', '#7F8C8D',
+						 '#2C3E50'];
+					 
+			// Create a header element
+			const header1 = document.createElement('h1');
+			header1.innerHTML= 'Colors';
+
+			// Add descrition element 
+			const header2 = document.createElement('h2');
+			header2.innerHTML= 'Display my favourite colors :';
+
+			// Create a div to contain all elemets
+			const colorsDiv = document.getElementById('colors');
+			colorsDiv.appendChild(header1);
+			colorsDiv.appendChild(header2);
+
+			// Create a wrapper for all the color rectangles
+			const rectangleWrapper = document.createElement('div');
+			rectangleWrapper.id = 'rectangleWrapper';
+			colorsDiv.appendChild(rectangleWrapper);
+
+			// Create 10 rectangles with different ids and colors
+			for(var i = 0; i < 10; i++){
+			  var item = document.createElement('div');
+			  item.classList.add('layout');
+			  item.id = 'rect#' + i;
+			  item.style.backgroundColor = colors[i];
+			  colorsDiv.appendChild(item);
+			  
+			  var text = document.createElement('h4');
+			  text.innerHTML = colors[i];
+			  colorsDiv.appendChild(text);
+			  
+			}
+
+			function output(){
+			  console.log("Here are the rectangle IDs:");
+			  
+			  for(var i = 0; i < 10; i++){
+				console.log('rect#' + i);
+			  }
+			}
+		</script>
+	</body>
+</html>
